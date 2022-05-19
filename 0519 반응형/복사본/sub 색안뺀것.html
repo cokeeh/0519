@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>game</title>
+
+
+	<script src="https://kit.fontawesome.com/397767baf5.js" crossorigin="anonymous"></script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
+
+	<script>
+
+    $(document).ready(function(){
+            $(".ham").click(function(){
+                $(".a").slideToggle();
+            });
+
+            $(window).resize(function(){
+                if(window.innerWidth<=768){
+                    $(".a").hide();
+                }
+
+                if(window.innerWidth>=767){
+                    $(".a").show();
+                }
+            });
+        });
+
+
+    </script>
+
+    <style>
+    	
+    	* {margin: 0; padding: 0; box-sizing: border-box;}
+		ul, li, ol {list-style: none; margin: 0; padding: 0;}
+		#wrap {width: 100%; height: auto; margin: 0 auto; overflow-x: hidden;  }
+		.ham > img {width: 35px; height: 35px;}
+
+		/*헤더*/
+		header {width: 100%; height: 100px; background-color: #1d1427;}
+		#main_header { max-width: 1430px; height: auto; background-color: #1d1427; margin: 0 auto; padding: 30px 0 0 0;}
+		#main_header {display: flex; flex-flow: row wrap; justify-content: space-between; align-items: center;}
+
+		.ham {display: none;}
+
+		/*네비*/
+		nav ul {display: flex;}
+		nav ul li a {margin: 0 30px 0 30px; font-size: 20px; text-decoration: none; color: #fff; padding: 0;}
+		.b ul {display: flex;}
+		.b {display: block;}
+		.b ul li a {margin: 0 30px 0 30px; font-size: 20px; text-decoration: none; color: #fff;}
+		.b > .icons > li > a {margin: 0 17px 0 17px; font-size: 20px; text-decoration: none; color: #fff;}
+		nav ul li a:hover {color: orange;}
+		.b ul li a:hover {color: orange;}
+		.home > a {color: orange;} 
+
+		/*슬라이더*/
+		#slider {max-width: 100%; height: 450px; background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url(img/subslider1.jpg); background-size: cover; background-position: center;}
+		#sub_slider_title {max-width: 1260px; width: 100%; margin: 0 auto; padding-top: 170px; text-align: center;}
+		#sub_slider_title > h1 {font-size: 60px;}
+		#sub_slider_title > span {font-size: 25px; font-weight: bold;}
+
+
+		/*전체 섹션*/
+		section {width: 100%; height: auto; background-color: #1d1427;}
+		#contents {width: 1260px; height: auto; background-color: gray; margin: 0 auto; display: flex; flex-direction: row; justify-content: space-between;}
+		.contents_box {width: 65%; height: 3150px; background-color: tomato; }
+
+		/*블로그 이미지1*/
+		.blogs_box {width: 100%; height: 1760px; background-color: darksalmon; margin-top: 70px; border-bottom: 1px solid #000;}
+		.img1_box {width: 100%; height: 400px;}
+		.img1_box > img {max-width: 820px; width: 100%; height: 100%;} 
+
+		/*블로그 타이틀*/
+		.blogs_title {width: 100%; height: auto; background-color: darkred; padding: 20px 0 20px 0;}
+		.blogs_title > h1 {color: #fff;}
+		.blogs_title ul {display: flex;}
+		.blogs_title ul li {margin: 10px 5px 0 0;}
+		.blogs_title ul li a {text-decoration: none; color: #c2c3c0;}
+		.blogs_title ul li a i {color: orange;}
+
+		/*블로그 텍스트*/
+		.blogs_text {width: 100%; height: auto; background-color: darkcyan;}
+		.blogs_text > p {background-color: gold; font-size: 17px; color: #c2c3c0; }
+		.blockquote {padding: 30px 30px; font-weight: bold; font-size: 17px; color: #c2c3c0;}
+		.blockquote > i {font-size: 25px; margin: 0 20px; color: orange;}
+
+		/*블로그 이미지2*/
+		.img2_box {width: 100%; height: 300px; background-color: darkred; margin: 30px 0 0 0; display: flex; flex-direction: row; justify-content: space-between;}
+		.img2_box_mini {width: 49%; height: 300px; background-color: purple; }
+		.img2_box_mini > img {max-width: 402px; width: 100%; height: 100%;}
+
+		/*블로그 텍스트2*/
+		.blogs_text2 {width: 100%; height: 310px; background-color: blue; padding: 20px 0 0 0;}
+		.blogs_text2 > h3 {padding: 0 0 10px 0; color: #fff;}
+		.blogs_text2 > p {font-size: 17px; color: #c2c3c0;}
+
+		/*블로그 하단 태그 및 이모티콘*/
+		.bottom {width: 100%; height: auto; background-color: white; margin: 70px 0 0 0; display: flex; flex-direction: row; justify-content: space-between;}
+		.bottom > span > i {font-size: 25px; margin: 0 5px 0 0; color: orange;}
+		.bottom > span > a {text-decoration: none; color: #c2c3c0;}
+		.bottom ul {display: flex;}
+		.bottom ul li a {color: orange; padding-left: 30px; font-size: 25px;}
+
+		/*코멘트*/
+		.comment_box {width: 100%; height: 600px; background-color: green;  margin-top: 80px; }
+		.comment_box > h1 {width: 100%; font-size: 30px; background-color: pink; padding-bottom: 10px; color: #fff;}
+		.comment {width: 100%; height: 160px; background-color: orange; margin-top: 20px; display: flex; border-bottom: 1px solid black;}
+		.comment_imgbox {width: 20%; height: 160px; background-color: cyan; display: flex; justify-content: center; align-items: center;}
+		.comment_imgbox > img {width: 90px; height: 90px; border-radius: 50px; }
+		.comment_text {width: 80%; height: 160px; background-color: blue;}
+		.comment_text > h4 {font-size: 25px; background-color: purple; color: #fff;}
+		.comment_text > span {display: block; padding: 10px 0 0 0; border-bottom: 1px solid black; font-weight: bold; color: #c2c3c0; }
+		.comment_text > span > i {color: orange;}
+		.comment_text > p {padding: 10px 0 0 0; color: #c2c3c0;}
+		
+		/*코멘트 폼*/
+		.leave_comment_box {width: 100%; height: 500px; background-color: darkcyan; margin-top: 60px; }
+		.leave_comment_box > h1 {width: 100%; font-size: 30px; background-color: pink; padding-bottom: 10px; color: #fff;}
+
+		/*이름,이메일 폼*/
+		form {width: 100%; height: 400px; background-color: green; margin-top: 30px;}
+		.first_form {width: 100%; height: 50px; background-color: rebeccapurple; display: flex; flex-direction: row; justify-content: space-between;  }
+		.name_email {width: 47%; height: 50px; background-color: red;}
+		.name_email > input {width: 100%; height: 100%; border: 0; border-radius: 20px; padding: 0 20px;}
+		.name_email > input:focus {outline:none;}
+
+		/*메세지 전송 폼*/
+		.second_form {width: 100%; height: 200px; background-color: greenyellow; margin-top: 40px;}
+		textarea {width: 100%; height: 200px; outline:none; border: 0; resize: none; font-size: 15px; font-family: "맑은 고딕"; padding: 20px; border-radius: 20px;}
+		form > button {width: 160px; height: 45px; margin-top: 30px; border-radius: 20px; border: 0;}
+
+
+		/*사이드 바*/
+		.sidebar {width: 27%; height: 1500px; background-color: cyan; }
+
+		/*검색 창*/
+		.search {width: 100%; height: 60px; background-color: greenyellow; margin-top: 70px; display: flex;}
+		.search_bar {width: 80%; height: 60px; background-color: blue;}
+		.search_bar > input {width: 100%; height: 100%; outline:none; border: 0; font-size: 18px; padding: 20px;} 
+		.search_button {width: 20%; height: 60px; background-color: #170e1f; display: flex; justify-content: center; align-items: center;}
+		.search_button > i {font-size: 22px; color: orange;}
+
+		/*인물 창*/
+		.side_contents {width: 100%; height: auto; border: 1px solid orange; background-color: darkblue; margin-top: 40px; }
+		.side_contents_box {width: 100%; height: auto; background-color: purple;}
+		.side_contents_box > img {width: 120px; height: 110px; margin-top: 50px; margin-left: 110px; border-radius: 100%;}
+		.side_contents_text {width: 100%; height: 100px; background-color: darksalmon; display: flex; flex-direction: column; align-items: center; }
+		.side_contents_text > h3 {padding: 10px 0 10px 0; color: #fff;}
+		.side_contents_text > h4 {color: #c2c3c0;}
+		.side_contents_text > h5 {color: #c2c3c0;}
+		.side_contents_icon {width: 100%; height: 80px; background-color: red;}
+		.side_contents_icon ul {display: flex; flex-direction: row; justify-content: space-around; }
+		.side_contents_icon ul li a { font-size: 30px; color: black; color: orange;}
+
+		/*최신 뉴스*/
+		.recent_news {width: 100%; height: auto; background-color: greenyellow; margin-top: 40px;}
+		.recent_news > h1 {padding: 10px 0 10px 0; color: #fff;}
+		.recent_news_box {width: 100%; height: 120px; background-color: tomato; margin-top: 10px; display: flex; justify-content: space-between;}
+		.recent_news_box > img {width: 120px; height: 120px;}
+		.recent_news_text {width: 100%; height: 120px; background-color: red; display: flex; flex-direction: column; justify-content: center; padding-left: 20px;}
+		.recent_news_text > h3 {color: #fff;}
+		.recent_news_text > span {color: #c2c3c0;}
+		.recent_news_text > span > i {color: orange;}
+
+
+		/*카테고리*/
+		.categories {width: 100%; height: auto; background-color: green; margin-top: 40px;}
+		.categories > h1 {color: #fff;}
+		.categories ul li {padding-top: 15px;}
+		.categories ul li a {text-decoration: none; color: black; font-weight: bold; font-size: 20px; color: #c2c3c0; }
+
+		/*테크*/
+		.tag {width: 100%; height: auto; background-color: darkcyan; margin-top: 40px; }
+		.tag > h1 {color: #fff;}
+		.tag > button {font-size: 18px; padding: 8px; border-radius: 20px; margin: 15px 5px 5px 0; border: 0;}
+		
+
+
+		/*푸터*/
+		footer {width: 100%; height: 505px; background-color: #170e1f; background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url(img/footer.jpg); background-size: cover; background-position: center; }
+		#footerbox {width: 1430px; height: 505px;  margin: 0 auto;  display: flex; flex-flow: row wrap; align-items: center; justify-content: center;}
+		.minibox1 {width:300px ; height: 200px;  margin: 5px; display: flex; flex-flow: row wrap;}
+		.minibox1 > h2 {color: #fff;}
+		.minibox2 {width:300px ; height: 200px;  margin: 5px; display: flex; flex-flow: row wrap;}
+		.minibox2 > h2 {color: #fff;}
+		.minibox3 {width:300px ; height: 200px;  margin: 5px; display: flex; flex-flow: row wrap;}
+		.minibox3 > h2 {color: #fff;}
+		.minibox4 {width:300px ; height: 200px;  margin: 5px; display: flex; flex-flow: row wrap;}
+		.minibox4 > h2 {color: #fff;}
+
+		/*주소*/
+		.Address_textbox {width: 300px; height: 70px;  color: #c2c3c0; display: flex; flex-direction: row; align-items: center; padding: 0 3px 0 0;}
+		.Address_textbox > i { color: orange; font-size: 17px; margin: 0 10px 0 0; position: relative; bottom: 20px; }
+		.Address_textbox2 {width: 300px; height: 40px;  display: flex; flex-flow: row wrap; align-items: center; color: #c2c3c0; }
+		.Address_textbox2 > i { color: orange; font-size: 17px; margin: 0 10px 0 0; }
+		.Address_textbox3 {width: 300px; height: 40px; display: flex; flex-flow: row wrap; align-items: center; color: #c2c3c0; }
+		.Address_textbox3 > i { color: orange; font-size: 17px; margin: 0 10px 0 0; }
+
+		/*인포*/
+		.info_textbox {width: 300px; height: 170px;  display: flex; flex-direction: column; justify-content: space-around; color: #c2c3c0;}
+		.info_textbox > a {text-decoration: none; color: #c2c3c0;}
+		.info_textbox > a > span:hover {color: orange;}
+
+		/*기타*/
+		.Extras_textbox {width: 300px; height: 170px;  display: flex; flex-direction: column; justify-content: space-around; }
+		.Extras_textbox > a {text-decoration: none; color: #c2c3c0;}
+		.Extras_textbox > a > span:hover {color: orange;}
+
+
+		/*뉴스레터*/
+		.Newsletter_textbox {width: 300px; height: 140px;  display: flex; flex-direction: row; flex-wrap: wrap; align-items: center;}
+
+		/*뉴스레터 - 메일 창*/
+		#letter {width: 300px; height: 50px; }
+		.Newsletter_textbox > p {color: #c2c3c0;}
+		#letter > input {width: 100%; height: 100%; border: 0; border-radius: 20px; padding: 0 20px;}
+		#letter > input:focus {outline:none;}
+		#letter > button { position: relative; bottom: 40px; float: right; margin: 0 7px 0 0; border: 0; background-color: #fff}
+
+		/*뉴스레터 - 아이콘*/
+		.Newsletter_iconbox {width: 300px; height: 40px;  display: flex; flex-flow: row wrap; justify-content: space-around; align-items: center;}
+		.Newsletter_iconbox > a > i {color: orange; font-size: 25px;} 
+		.Newsletter_iconbox > a > i:hover {color: skyblue;}
+		
+
+    </style>
+
+</head>
+<body>
+
+	<div id="wrap">
+
+		<!--헤더-->
+		<header>
+			<div id="main_header">
+				<div id="small">
+					<div class="logo">
+						<img src="img/logo.png">
+					</div>
+					<div class="ham">
+						<img src="img/ham.png">
+					</div>
+				</div>
+
+				<!--네비메뉴-->
+				<nav class="a">
+					<ul>
+						<li class="home"><a href="#">Home</a></li>
+						<li><a href="#">Shop</a></li>
+						<li><a href="#">Blog</a></li>
+						<li><a href="#">Media</a></li>
+						<li><a href="#">ShortCode</a></li>
+						<li><a href="#">Features</a></li>
+					</ul>
+				</nav>
+
+				<!--네비아이콘-->
+				<div class="b">
+					<ul class="icons">				
+						<li class="icon"><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+						<li class="icon"><a href="#"><i class="fa-solid fa-user"></i></a></li>
+						<li class="icon"><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</header>
+
+		<!--슬라이더-->
+		<div id="slider">
+			<div id="sub_slider_title">	
+				<h1>Blogs</h1>
+				<span>Our last News and Blogs</span>
+			</div>
+		
+		</div>
+
+		<!--전체 섹션-->
+		<section>
+
+			<!--메인 컨텐츠-->
+			<div id="contents">
+				<div class="contents_box">
+
+					<!--블로그-->
+					<div class="blogs_box">
+
+						<!--블로그 첫번째 이미지-->
+						<div class="img1_box">
+							<img src="img/subblog1.jpg" alt="subblog1">
+						</div>
+
+						<!--블로그 타이틀-->
+						<div class="blogs_title">
+							<h1>Anyway REPS is a NYC agency repres enting photographers</h1>
+							<ul>
+								<li><a href="#"><i class="fa-solid fa-pen-to-square"></i></a></li>
+								<li><a href="#">By Admin</a></li>
+								<li>｜</li>
+								<li><a href="#"><i class="fa-solid fa-tags"></i></a></li>
+								<li><a href="#">Counge, Denum</a></li>
+								<li>｜</li>
+								<li><a href="#"><i class="fa-solid fa-folder-open"></i></a></li>
+								<li><a href="#">Uncategorized</a></li>
+							</ul>
+						</div>
+
+						<!--블로그 텍스트-->
+						<div class="blogs_text">
+							<p>We love these outfits styled by Phyllis Evans Baker for a Calvin Klein collaboration with the Marie Claire & Esquire teams. You can find mas on their website, primed for purchase. This is your first post. Edit or delete it, then start writing! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+
+							<div class="blockquote"><i class="fa-solid fa-quote-left"></i>Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To achieve this, it would be necessary to have uniform grammar, pronunciation and more common words.<i class="fa-solid fa-quote-right"></i></div>
+
+							<p>To an English person, it will seem like simplified English, as a skeptical Cambridge friend of mine told me what Occidental is.The European languages are members of the same family. Their separate existence is a myth. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words.Sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
+						</div>
+
+						<!--블로그 두번째 이미지-->
+						<div class="img2_box">
+
+							<div class="img2_box_mini">
+								<img src="img/subblog2.jpg" alt="subblog2">
+							</div>
+
+							<div class="img2_box_mini">
+								<img src="img/subblog3.jpg" alt="subblog3">
+								
+							</div>
+	
+						</div>
+
+						<!--블로그 텍스트2-->
+						<div class="blogs_text2">
+							<h3>Post Format: Image, Lorem Ipsum is simply text</h3>
+							<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
+						</div>
+
+						<!--블로그 하단-->
+						<div class="bottom">
+
+							<span>
+								<i class="fa-solid fa-tags"></i>
+								<a href="#">Eum Fugiat</a>
+							</span>
+
+							<ul>
+								<li><a href="#"><i class="fa-brands fa-instagram-square"></i></a></li>
+								<li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+								<li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+							</ul>
+				
+						</div>			
+					</div>
+
+					<!--코멘트 박스-->
+					<div class="comment_box">
+						<h1>COMMENT</h1>
+						<div class="comment">
+							<div class="comment_imgbox"><img src="img/comment1.jpg" alt="comment1"></div>
+							<div class="comment_text">
+								<h4>Din Desuza</h4>
+								<span>
+									<i class="fa-solid fa-calendar"></i>
+									May 17, 2022 at 3:30pm
+								</span>
+								<p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							</div>
+						</div>
+						<div class="comment">
+							<div class="comment_imgbox"><img src="img/comment2.jpg" alt="comment2"></div>
+							<div class="comment_text">
+								<h4>Din Desuza</h4>
+								<span>
+									<i class="fa-solid fa-calendar"></i>
+									May 17, 2022 at 5:45pm
+								</span>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+							</div>
+						</div>
+						<div class="comment">
+							<div class="comment_imgbox"><img src="img/comment3.jpg" alt="comment3"></div>
+							<div class="comment_text">
+								<h4>Luies Charls</h4>
+								<span>
+									<i class="fa-solid fa-calendar"></i>
+									May 18, 2022 at 1:30pm
+								</span>
+								<p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+							</div>
+						</div>
+					</div>
+
+					<!--코멘트 작성 폼-->
+					<div class="leave_comment_box">
+						<h1>LEAVE A COMMENT</h1>
+						<form>
+							<div class="first_form">
+								<div class="name_email">
+									<input type="text" name="name" placeholder="Your Name*">
+								</div>
+
+								<div class="name_email">
+									<input type="text" name="name" placeholder="Your Email*">
+								</div>
+							</div>
+
+							<div class="second_form">
+								<div class="message">
+									<textarea  placeholder="Your message"></textarea>
+								</div>
+							</div>
+
+							<button>SEND MESSAGE</button>
+						</form>
+					</div>
+
+				</div>
+
+				<div class="sidebar">
+					<div class="search">
+						<div class="search_bar">
+							<input type="text" name="search" placeholder="search">
+						</div>
+
+						<div class="search_button">
+							<i class="fa-solid fa-magnifying-glass"></i>
+						</div>
+					</div>
+
+					<div class="side_contents">
+						<div class="side_contents_box">
+							<img src="img/sidecontents.jpg" alt="sidecontents">
+							<div class="side_contents_text">
+								<h3>Aaliyah Jacey</h3>
+								<h4>Contents Reviewer</h4>
+								<h5>On the other hand, de-nounce with righteous</h5>
+							</div>
+						</div>
+						
+						<div class="side_contents_icon">
+							<ul>
+								<li><a href="#"><i class="fa-brands fa-instagram-square"></i></a></li>
+								<li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+								<li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="recent_news">
+						<h1>RECENT NEWS</h1>
+						<div class="recent_news_box">
+							<img src="img/recentnews1.jpg" alt="recentnews1">
+							<div class="recent_news_text">
+								<h3>Releases new game</h3>
+								<span>
+									<i class="fa-solid fa-clock"></i>
+									may 18, 2022
+								</span>
+							</div>
+						</div>
+
+						<div class="recent_news_box">
+							<img src="img/recentnews2.jpg" alt="recentnews2">
+							<div class="recent_news_text">
+								<h3>Comic con in LA</h3>
+								<span>
+									<i class="fa-solid fa-clock"></i>
+									may 20, 2022
+								</span>
+							</div>
+						</div>
+
+						<div class="recent_news_box">
+							<img src="img/recentnews3.jpg" alt="recentnews3">
+							<div class="recent_news_text">
+								<h3>TOP 30 games</h3>
+								<span>
+									<i class="fa-solid fa-clock"></i>
+									may 20, 2022
+								</span>
+							</div>
+						</div>	
+					</div>
+
+					<div class="categories">
+						<h1>CATEGORIES</h1>
+						<ul>
+							<li><a href="#">Review (12)</a></li>
+							<li><a href="#">News (3)</a></li>
+							<li><a href="#">Commercial (6)</a></li>
+							<li><a href="#">Experience (10)</a></li>
+						</ul>
+					</div>
+
+					<div class="tag">
+						<h1>TAGS</h1>
+						<button>Game</button>
+						<button>Popular</button>
+						<button>Video Game</button>
+						<button>Latest</button>
+						<button>New Title</button>
+					</div>
+				</div>
+
+
+			</div>
+
+		</section>
+
+
+		<!--푸터-->
+		<footer>
+			<div id="footerbox">
+
+				<!--푸터 Address-->
+				<div class="minibox1">
+					<h2>Address Info</h2>
+					<div class="Address_textbox">
+						<i class="fa-solid fa-location-dot"></i>
+						<div class="Address_text" >
+							<span>60 29th Street San Francisco, CA 94110 507-Union Trade Center, United States of America</span>
+						</div>	
+					</div>
+
+					<div class="Address_textbox2">
+						<i class="fa-solid fa-phone"></i>
+						<div class="Address_text2" >
+							<span>(+00) 123-456-789</span>
+						</div>	
+					</div>
+
+					<div class="Address_textbox3">
+						<i class="fa-solid fa-envelope"></i>
+						<div class="Address_text3" >
+							<span>demo@example.com</span>
+						</div>	
+					</div>
+				</div>
+
+				<!--푸터 info-->
+				<div class="minibox2">
+					<h2>Information</h2>
+					<div class="info_textbox">
+						<a href="#"><span>Bookmark</span></a>
+						<a href="#"><span>Features</span></a>
+						<a href="#"><span>Sitemap</span></a>
+						<a href="#"><span>Lists</span></a>
+						<a href="#"><span>Contact Us</span></a>
+					</div>
+				</div>
+
+				<!--푸터 Extras-->
+				<div class="minibox3">
+					<h2>Extras</h2>
+					<div class="Extras_textbox">
+						<a href="#"><span>Delivery</span></a>
+						<a href="#"><span>Cart</span></a>
+						<a href="#"><span>Terms conditions</span></a>
+						<a href="#"><span>My account</span></a>
+						<a href="#"><span>About us</span></a>
+					</div>
+				</div>
+
+				<!--푸터 Newsletter-->
+				<div class="minibox4">
+					<h2>Our Newsletter</h2>
+					<div class="Newsletter_textbox">
+						<p>There are many variations of passages of form humour or randomised</p>
+						<div id="letter">
+							<input type="text">
+							<button type="submit">
+								<img src="img/letter.png" alt="letter" width=30px; >
+							</button>
+						</div>
+					</div>
+
+					<!--푸터 Newsletter 아이콘-->
+					<div class="Newsletter_iconbox">
+						<a href="#"><i class="fa-brands fa-twitter"></i></a>
+						<a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+						<a href="#"><i class="fa-brands fa-instagram-square"></i></a>
+						<a href="#"><i class="fa-brands fa-google-plus-g"></i></a>
+						<a href="#"><i class="fa-brands fa-skype"></i></a>
+					</div>
+				</div>			
+			</div>
+		</footer>
+	</div>
+
+</body>
+</html>

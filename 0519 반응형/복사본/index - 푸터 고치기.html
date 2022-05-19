@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>game</title>
+
+
+	<script src="https://kit.fontawesome.com/397767baf5.js" crossorigin="anonymous"></script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
+
+	<script>
+
+    $(document).ready(function(){
+            $(".ham").click(function(){
+                $(".a").slideToggle();
+            });
+
+            $(window).resize(function(){
+                if(window.innerWidth<=768){
+                    $(".a").hide();
+                }
+
+                if(window.innerWidth>=767){
+                    $(".a").show();
+                }
+            });
+        });
+
+
+    </script>
+
+    <style>
+    	
+
+    	/*푸터*/
+		footer {width: 100%; height: 505px; background-color: #170e1f; background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url(../img/footer.jpg); background-size: cover; background-position: center; }
+		#footerbox {width: 1430px; height: 505px;  margin: 0 auto;  display: flex; flex-flow: row wrap; align-items: center; justify-content: center;}
+		.minibox1 {width:300px ; height: auto;  margin: 5px; display: flex; flex-flow: row wrap;}
+		.minibox1 > h2 {color: #fff;}
+		.minibox2 {width:300px ; height: auto;  margin: 5px; display: flex; flex-flow: row wrap;}
+		.minibox2 > h2 {color: #fff;}
+		.minibox3 {width:300px ; height: auto;  margin: 5px; display: flex; flex-flow: row wrap; background-color: palegoldenrod;}
+		.minibox3 > h2 {color: #fff;}
+		.minibox4 {width:300px ; height: auto;  margin: 5px; display: flex; flex-flow: row wrap; background-color: blue;}
+		.minibox4 > h2 {color: #fff;}
+
+		/*주소*/
+		.Address_textbox {width: 300px; height: 70px;  color: #c2c3c0; display: flex; flex-direction: row; align-items: center; padding: 0 3px 0 0;}
+		.Address_textbox > i { color: orange; font-size: 17px; margin: 0 10px 0 0; position: relative; bottom: 20px; }
+		.Address_textbox2 {width: 300px; height: 40px;  display: flex; flex-flow: row wrap; align-items: center; color: #c2c3c0; }
+		.Address_textbox2 > i { color: orange; font-size: 17px; margin: 0 10px 0 0; }
+		.Address_textbox3 {width: 300px; height: 40px; display: flex; flex-flow: row wrap; align-items: center; color: #c2c3c0; }
+		.Address_textbox3 > i { color: orange; font-size: 17px; margin: 0 10px 0 0; }
+
+		/*인포*/
+		.info_textbox {width: 300px; height: 170px;  display: flex; flex-direction: column; justify-content: space-around; color: #c2c3c0;}
+		.info_textbox > a {text-decoration: none; color: #c2c3c0;}
+		.info_textbox > a > span:hover {color: orange;}
+
+		/*기타*/
+		.Extras_textbox {width: 300px; height: 170px;  display: flex; flex-direction: column; justify-content: space-around; }
+		.Extras_textbox > a {text-decoration: none; color: #c2c3c0;}
+		.Extras_textbox > a > span:hover {color: orange;}
+
+
+		/*뉴스레터*/
+		.Newsletter_textbox {width: 300px; height: 140px;  display: flex; flex-direction: row; flex-wrap: wrap; align-items: center;}
+
+		/*뉴스레터 - 메일 창*/
+		#letter {width: 100%; height: 50px;  background-color: darkcyan; display: flex; border-radius: 20px; overflow: hidden;}
+		.Newsletter_textbox > p {color: #c2c3c0;}
+		.letter_bar {width: 75%; height: 100%; background-color: red; overflow: hidden; }
+		.letter_bar > input {width: 100%; height: 100%; outline:none; border: 0; }
+		.letter_button {width: 25%; height: 100%; background-color: pink; border: 0; font-size: 30px; }
+	
+ 		
+		
+		/*뉴스레터 - 아이콘*/
+		.Newsletter_iconbox {width: 300px; height: 40px;  display: flex; flex-flow: row wrap; justify-content: space-around; align-items: center;}
+		.Newsletter_iconbox > a > i {color: orange; font-size: 25px;} 
+		.Newsletter_iconbox > a > i:hover {color: skyblue;}
+
+		}
+
+
+    </style>
+
+</head>
+<body>
+
+	<div id="wrap">
+
+		
+
+		<!--푸터-->
+		<footer>
+			<div id="footerbox">
+
+				<!--푸터 Address-->
+				<div class="minibox1">
+					<h2>Address Info</h2>
+					<div class="Address_textbox">
+						<i class="fa-solid fa-location-dot"></i>
+						<div class="Address_text" >
+							<span>60 29th Street San Francisco, CA 94110 507-Union Trade Center, United States of America</span>
+						</div>	
+					</div>
+
+					<div class="Address_textbox2">
+						<i class="fa-solid fa-phone"></i>
+						<div class="Address_text2" >
+							<span>(+00) 123-456-789</span>
+						</div>	
+					</div>
+
+					<div class="Address_textbox3">
+						<i class="fa-solid fa-envelope"></i>
+						<div class="Address_text3" >
+							<span>demo@example.com</span>
+						</div>	
+					</div>
+				</div>
+
+				<!--푸터 info-->
+				<div class="minibox2">
+					<h2>Information</h2>
+					<div class="info_textbox">
+						<a href="#"><span>Bookmark</span></a>
+						<a href="#"><span>Features</span></a>
+						<a href="#"><span>Sitemap</span></a>
+						<a href="#"><span>Lists</span></a>
+						<a href="#"><span>Contact Us</span></a>
+					</div>
+				</div>
+
+				<!--푸터 Extras-->
+				<div class="minibox3">
+					<h2>Extras</h2>
+					<div class="Extras_textbox">
+						<a href="#"><span>Delivery</span></a>
+						<a href="#"><span>Cart</span></a>
+						<a href="#"><span>Terms conditions</span></a>
+						<a href="#"><span>My account</span></a>
+						<a href="#"><span>About us</span></a>
+					</div>
+				</div>
+
+				<!--푸터 Newsletter-->
+				<div class="minibox4">
+					<h2>Our Newsletter</h2>
+					<div class="Newsletter_textbox">
+						<p>There are many variations of passages of form humour or randomised</p>
+						<div id="letter">
+							<div class="letter_bar">
+								<input type="text" name="letter">
+							</div>
+
+							<button class="letter_button">
+								<i class="fa-solid fa-envelope"></i>
+							</button>
+						</div>
+					</div>
+
+					<!--푸터 Newsletter 아이콘-->
+					<div class="Newsletter_iconbox">
+						<a href="#"><i class="fa-brands fa-twitter"></i></a>
+						<a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+						<a href="#"><i class="fa-brands fa-instagram-square"></i></a>
+						<a href="#"><i class="fa-brands fa-google-plus-g"></i></a>
+						<a href="#"><i class="fa-brands fa-skype"></i></a>
+					</div>
+				</div>			
+			</div>
+		</footer>
+	</div>
+
+</body>
+</html>
+
+
